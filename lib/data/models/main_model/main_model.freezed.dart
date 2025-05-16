@@ -21,6 +21,7 @@ MainModel _$MainModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MainModel {
   InfoModel get info => throw _privateConstructorUsedError;
+  List<ResultsModel> get results => throw _privateConstructorUsedError;
 
   /// Serializes this MainModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +38,7 @@ abstract class $MainModelCopyWith<$Res> {
   factory $MainModelCopyWith(MainModel value, $Res Function(MainModel) then) =
       _$MainModelCopyWithImpl<$Res, MainModel>;
   @useResult
-  $Res call({InfoModel info});
+  $Res call({InfoModel info, List<ResultsModel> results});
 
   $InfoModelCopyWith<$Res> get info;
 }
@@ -58,12 +59,17 @@ class _$MainModelCopyWithImpl<$Res, $Val extends MainModel>
   @override
   $Res call({
     Object? info = null,
+    Object? results = null,
   }) {
     return _then(_value.copyWith(
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as InfoModel,
+      results: null == results
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<ResultsModel>,
     ) as $Val);
   }
 
@@ -86,7 +92,7 @@ abstract class _$$MainModelImplCopyWith<$Res>
       __$$MainModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({InfoModel info});
+  $Res call({InfoModel info, List<ResultsModel> results});
 
   @override
   $InfoModelCopyWith<$Res> get info;
@@ -106,12 +112,17 @@ class __$$MainModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? info = null,
+    Object? results = null,
   }) {
     return _then(_$MainModelImpl(
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as InfoModel,
+      results: null == results
+          ? _value._results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<ResultsModel>,
     ));
   }
 }
@@ -119,17 +130,26 @@ class __$$MainModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$MainModelImpl implements _MainModel {
-  const _$MainModelImpl({required this.info});
+  const _$MainModelImpl(
+      {required this.info, required final List<ResultsModel> results})
+      : _results = results;
 
   factory _$MainModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$MainModelImplFromJson(json);
 
   @override
   final InfoModel info;
+  final List<ResultsModel> _results;
+  @override
+  List<ResultsModel> get results {
+    if (_results is EqualUnmodifiableListView) return _results;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_results);
+  }
 
   @override
   String toString() {
-    return 'MainModel(info: $info)';
+    return 'MainModel(info: $info, results: $results)';
   }
 
   @override
@@ -137,12 +157,14 @@ class _$MainModelImpl implements _MainModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MainModelImpl &&
-            (identical(other.info, info) || other.info == info));
+            (identical(other.info, info) || other.info == info) &&
+            const DeepCollectionEquality().equals(other._results, _results));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, info);
+  int get hashCode => Object.hash(
+      runtimeType, info, const DeepCollectionEquality().hash(_results));
 
   /// Create a copy of MainModel
   /// with the given fields replaced by the non-null parameter values.
@@ -161,13 +183,17 @@ class _$MainModelImpl implements _MainModel {
 }
 
 abstract class _MainModel implements MainModel {
-  const factory _MainModel({required final InfoModel info}) = _$MainModelImpl;
+  const factory _MainModel(
+      {required final InfoModel info,
+      required final List<ResultsModel> results}) = _$MainModelImpl;
 
   factory _MainModel.fromJson(Map<String, dynamic> json) =
       _$MainModelImpl.fromJson;
 
   @override
   InfoModel get info;
+  @override
+  List<ResultsModel> get results;
 
   /// Create a copy of MainModel
   /// with the given fields replaced by the non-null parameter values.

@@ -10,8 +10,8 @@ _$InfoModelImpl _$$InfoModelImplFromJson(Map<String, dynamic> json) =>
     _$InfoModelImpl(
       count: (json['count'] as num).toInt(),
       pages: (json['pages'] as num).toInt(),
-      next: json['next'] as String?,
-      prev: json['prev'] as String?,
+      next: json['next'] as String,
+      prev: json['prev'] as String,
     );
 
 Map<String, dynamic> _$$InfoModelImplToJson(_$InfoModelImpl instance) =>

@@ -1,10 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'location_model.dart';
-import 'origin_model.dart';
+import 'location/location_model.dart';
+import 'origin/origin_model.dart';
 
 part 'results_model.freezed.dart';
-
 part 'results_model.g.dart';
 
 @freezed
@@ -14,7 +13,7 @@ abstract class ResultsModel with _$ResultsModel {
     required String name,
     required String status,
     required String species,
-    String? type,
+    required String type,
     required String gender,
     required String image,
     required OriginInResultModel origin,

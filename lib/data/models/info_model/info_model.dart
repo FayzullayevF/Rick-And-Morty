@@ -8,8 +8,8 @@ abstract class InfoModel with _$InfoModel {
   const factory InfoModel({
     required int count,
     required int pages,
-    String? next,
-    String? prev,
+    required String next,
+    required String prev,
   }) = _InfoModel;
 
   factory InfoModel.fromJson(Map<String, dynamic> json) => _$InfoModelFromJson(json);

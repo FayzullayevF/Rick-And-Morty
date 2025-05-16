@@ -12,7 +12,7 @@ _$ResultsModelImpl _$$ResultsModelImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       status: json['status'] as String,
       species: json['species'] as String,
-      type: json['type'] as String?,
+      type: json['type'] as String,
       gender: json['gender'] as String,
       image: json['image'] as String,
       origin:

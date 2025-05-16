@@ -24,7 +24,7 @@ mixin _$ResultsModel {
   String get name => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
   String get species => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   OriginInResultModel get origin => throw _privateConstructorUsedError;
@@ -55,7 +55,7 @@ abstract class $ResultsModelCopyWith<$Res> {
       String name,
       String status,
       String species,
-      String? type,
+      String type,
       String gender,
       String image,
       OriginInResultModel origin,
@@ -87,7 +87,7 @@ class _$ResultsModelCopyWithImpl<$Res, $Val extends ResultsModel>
     Object? name = null,
     Object? status = null,
     Object? species = null,
-    Object? type = freezed,
+    Object? type = null,
     Object? gender = null,
     Object? image = null,
     Object? origin = null,
@@ -113,10 +113,10 @@ class _$ResultsModelCopyWithImpl<$Res, $Val extends ResultsModel>
           ? _value.species
           : species // ignore: cast_nullable_to_non_nullable
               as String,
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -182,7 +182,7 @@ abstract class _$$ResultsModelImplCopyWith<$Res>
       String name,
       String status,
       String species,
-      String? type,
+      String type,
       String gender,
       String image,
       OriginInResultModel origin,
@@ -214,7 +214,7 @@ class __$$ResultsModelImplCopyWithImpl<$Res>
     Object? name = null,
     Object? status = null,
     Object? species = null,
-    Object? type = freezed,
+    Object? type = null,
     Object? gender = null,
     Object? image = null,
     Object? origin = null,
@@ -240,10 +240,10 @@ class __$$ResultsModelImplCopyWithImpl<$Res>
           ? _value.species
           : species // ignore: cast_nullable_to_non_nullable
               as String,
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -284,7 +284,7 @@ class _$ResultsModelImpl implements _ResultsModel {
       required this.name,
       required this.status,
       required this.species,
-      this.type,
+      required this.type,
       required this.gender,
       required this.image,
       required this.origin,
@@ -306,7 +306,7 @@ class _$ResultsModelImpl implements _ResultsModel {
   @override
   final String species;
   @override
-  final String? type;
+  final String type;
   @override
   final String gender;
   @override
@@ -393,7 +393,7 @@ abstract class _ResultsModel implements ResultsModel {
       required final String name,
       required final String status,
       required final String species,
-      final String? type,
+      required final String type,
       required final String gender,
       required final String image,
       required final OriginInResultModel origin,
@@ -414,7 +414,7 @@ abstract class _ResultsModel implements ResultsModel {
   @override
   String get species;
   @override
-  String? get type;
+  String get type;
   @override
   String get gender;
   @override

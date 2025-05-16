@@ -1,14 +1,28 @@
 import 'package:dio/dio.dart';
 
-class ApiClient{
+class ApiClient {
   final Dio dio = Dio(BaseOptions(baseUrl: "https://rickandmortyapi.com/api"));
 
-  Future<Map<String, dynamic>> fetchCharacters() async{
+  Future<dynamic> fetchCharacters() async {
     final response = await dio.get("/character");
-    if(response.statusCode == 200){
-      print(response.data);
+    if (response.statusCode == 200) {
       return response.data;
-
+    } else {
+      throw Exception("${response.data}");
+    }
+  }
+  Future<dynamic> fetchEpisodes() async{
+    final response = await dio.get("/episode");
+    if(response.statusCode == 200){
+      return response.data;
+    }else{
+      throw Exception("${response.data}");
+    }
+  }
+  Future<dynamic> fetchLocations() async{
+    final response = await dio.get("/location");
+    if(response.statusCode == 200){
+      return response.data;
     }else{
       throw Exception("${response.data}");
     }
