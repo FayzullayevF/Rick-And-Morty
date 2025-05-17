@@ -20,8 +20,10 @@ MainLocationModel _$MainLocationModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MainLocationModel {
-  InfoModel get model => throw _privateConstructorUsedError;
-  LocationResultModel get location => throw _privateConstructorUsedError;
+  @JsonKey(name: 'info')
+  InfoModel get info => throw _privateConstructorUsedError;
+  @JsonKey(name: 'results')
+  List<LocationResultModel> get location => throw _privateConstructorUsedError;
 
   /// Serializes this MainLocationModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,10 +41,11 @@ abstract class $MainLocationModelCopyWith<$Res> {
           MainLocationModel value, $Res Function(MainLocationModel) then) =
       _$MainLocationModelCopyWithImpl<$Res, MainLocationModel>;
   @useResult
-  $Res call({InfoModel model, LocationResultModel location});
+  $Res call(
+      {@JsonKey(name: 'info') InfoModel info,
+      @JsonKey(name: 'results') List<LocationResultModel> location});
 
-  $InfoModelCopyWith<$Res> get model;
-  $LocationResultModelCopyWith<$Res> get location;
+  $InfoModelCopyWith<$Res> get info;
 }
 
 /// @nodoc
@@ -60,18 +63,18 @@ class _$MainLocationModelCopyWithImpl<$Res, $Val extends MainLocationModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = null,
+    Object? info = null,
     Object? location = null,
   }) {
     return _then(_value.copyWith(
-      model: null == model
-          ? _value.model
-          : model // ignore: cast_nullable_to_non_nullable
+      info: null == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
               as InfoModel,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as LocationResultModel,
+              as List<LocationResultModel>,
     ) as $Val);
   }
 
@@ -79,19 +82,9 @@ class _$MainLocationModelCopyWithImpl<$Res, $Val extends MainLocationModel>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $InfoModelCopyWith<$Res> get model {
-    return $InfoModelCopyWith<$Res>(_value.model, (value) {
-      return _then(_value.copyWith(model: value) as $Val);
-    });
-  }
-
-  /// Create a copy of MainLocationModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LocationResultModelCopyWith<$Res> get location {
-    return $LocationResultModelCopyWith<$Res>(_value.location, (value) {
-      return _then(_value.copyWith(location: value) as $Val);
+  $InfoModelCopyWith<$Res> get info {
+    return $InfoModelCopyWith<$Res>(_value.info, (value) {
+      return _then(_value.copyWith(info: value) as $Val);
     });
   }
 }
@@ -104,12 +97,12 @@ abstract class _$$MainLocationModelImplCopyWith<$Res>
       __$$MainLocationModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({InfoModel model, LocationResultModel location});
+  $Res call(
+      {@JsonKey(name: 'info') InfoModel info,
+      @JsonKey(name: 'results') List<LocationResultModel> location});
 
   @override
-  $InfoModelCopyWith<$Res> get model;
-  @override
-  $LocationResultModelCopyWith<$Res> get location;
+  $InfoModelCopyWith<$Res> get info;
 }
 
 /// @nodoc
@@ -125,18 +118,18 @@ class __$$MainLocationModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = null,
+    Object? info = null,
     Object? location = null,
   }) {
     return _then(_$MainLocationModelImpl(
-      model: null == model
-          ? _value.model
-          : model // ignore: cast_nullable_to_non_nullable
+      info: null == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
               as InfoModel,
       location: null == location
-          ? _value.location
+          ? _value._location
           : location // ignore: cast_nullable_to_non_nullable
-              as LocationResultModel,
+              as List<LocationResultModel>,
     ));
   }
 }
@@ -144,19 +137,30 @@ class __$$MainLocationModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$MainLocationModelImpl implements _MainLocationModel {
-  const _$MainLocationModelImpl({required this.model, required this.location});
+  const _$MainLocationModelImpl(
+      {@JsonKey(name: 'info') required this.info,
+      @JsonKey(name: 'results')
+      required final List<LocationResultModel> location})
+      : _location = location;
 
   factory _$MainLocationModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$MainLocationModelImplFromJson(json);
 
   @override
-  final InfoModel model;
+  @JsonKey(name: 'info')
+  final InfoModel info;
+  final List<LocationResultModel> _location;
   @override
-  final LocationResultModel location;
+  @JsonKey(name: 'results')
+  List<LocationResultModel> get location {
+    if (_location is EqualUnmodifiableListView) return _location;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_location);
+  }
 
   @override
   String toString() {
-    return 'MainLocationModel(model: $model, location: $location)';
+    return 'MainLocationModel(info: $info, location: $location)';
   }
 
   @override
@@ -164,14 +168,14 @@ class _$MainLocationModelImpl implements _MainLocationModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MainLocationModelImpl &&
-            (identical(other.model, model) || other.model == model) &&
-            (identical(other.location, location) ||
-                other.location == location));
+            (identical(other.info, info) || other.info == info) &&
+            const DeepCollectionEquality().equals(other._location, _location));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, model, location);
+  int get hashCode => Object.hash(
+      runtimeType, info, const DeepCollectionEquality().hash(_location));
 
   /// Create a copy of MainLocationModel
   /// with the given fields replaced by the non-null parameter values.
@@ -192,16 +196,20 @@ class _$MainLocationModelImpl implements _MainLocationModel {
 
 abstract class _MainLocationModel implements MainLocationModel {
   const factory _MainLocationModel(
-      {required final InfoModel model,
-      required final LocationResultModel location}) = _$MainLocationModelImpl;
+          {@JsonKey(name: 'info') required final InfoModel info,
+          @JsonKey(name: 'results')
+          required final List<LocationResultModel> location}) =
+      _$MainLocationModelImpl;
 
   factory _MainLocationModel.fromJson(Map<String, dynamic> json) =
       _$MainLocationModelImpl.fromJson;
 
   @override
-  InfoModel get model;
+  @JsonKey(name: 'info')
+  InfoModel get info;
   @override
-  LocationResultModel get location;
+  @JsonKey(name: 'results')
+  List<LocationResultModel> get location;
 
   /// Create a copy of MainLocationModel
   /// with the given fields replaced by the non-null parameter values.

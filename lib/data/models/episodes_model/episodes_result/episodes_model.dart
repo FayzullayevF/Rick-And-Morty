@@ -10,7 +10,7 @@ abstract class EpisodesResultModel with _$EpisodesResultModel {
     required String name,
     @JsonKey(name: "air_date")
     required String airDate,
-    required String episodes,
+    required String episode,
     required List<String> characters,
     required String url,
     required String created,

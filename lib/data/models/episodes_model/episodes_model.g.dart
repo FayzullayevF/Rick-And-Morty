@@ -8,8 +8,9 @@ part of 'episodes_model.dart';
 
 _$EpisodesModelImpl _$$EpisodesModelImplFromJson(Map<String, dynamic> json) =>
     _$EpisodesModelImpl(
-      results:
-          EpisodesResultModel.fromJson(json['results'] as Map<String, dynamic>),
+      results: (json['results'] as List<dynamic>)
+          .map((e) => EpisodesResultModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       model: InfoModel.fromJson(json['model'] as Map<String, dynamic>),
     );
 

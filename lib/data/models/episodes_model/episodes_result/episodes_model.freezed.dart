@@ -24,7 +24,7 @@ mixin _$EpisodesResultModel {
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: "air_date")
   String get airDate => throw _privateConstructorUsedError;
-  String get episodes => throw _privateConstructorUsedError;
+  String get episode => throw _privateConstructorUsedError;
   List<String> get characters => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String get created => throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ abstract class $EpisodesResultModelCopyWith<$Res> {
       {int id,
       String name,
       @JsonKey(name: "air_date") String airDate,
-      String episodes,
+      String episode,
       List<String> characters,
       String url,
       String created});
@@ -73,7 +73,7 @@ class _$EpisodesResultModelCopyWithImpl<$Res, $Val extends EpisodesResultModel>
     Object? id = null,
     Object? name = null,
     Object? airDate = null,
-    Object? episodes = null,
+    Object? episode = null,
     Object? characters = null,
     Object? url = null,
     Object? created = null,
@@ -91,9 +91,9 @@ class _$EpisodesResultModelCopyWithImpl<$Res, $Val extends EpisodesResultModel>
           ? _value.airDate
           : airDate // ignore: cast_nullable_to_non_nullable
               as String,
-      episodes: null == episodes
-          ? _value.episodes
-          : episodes // ignore: cast_nullable_to_non_nullable
+      episode: null == episode
+          ? _value.episode
+          : episode // ignore: cast_nullable_to_non_nullable
               as String,
       characters: null == characters
           ? _value.characters
@@ -123,7 +123,7 @@ abstract class _$$EpisodesResultModelImplCopyWith<$Res>
       {int id,
       String name,
       @JsonKey(name: "air_date") String airDate,
-      String episodes,
+      String episode,
       List<String> characters,
       String url,
       String created});
@@ -145,7 +145,7 @@ class __$$EpisodesResultModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? airDate = null,
-    Object? episodes = null,
+    Object? episode = null,
     Object? characters = null,
     Object? url = null,
     Object? created = null,
@@ -163,9 +163,9 @@ class __$$EpisodesResultModelImplCopyWithImpl<$Res>
           ? _value.airDate
           : airDate // ignore: cast_nullable_to_non_nullable
               as String,
-      episodes: null == episodes
-          ? _value.episodes
-          : episodes // ignore: cast_nullable_to_non_nullable
+      episode: null == episode
+          ? _value.episode
+          : episode // ignore: cast_nullable_to_non_nullable
               as String,
       characters: null == characters
           ? _value._characters
@@ -190,7 +190,7 @@ class _$EpisodesResultModelImpl implements _EpisodesResultModel {
       {required this.id,
       required this.name,
       @JsonKey(name: "air_date") required this.airDate,
-      required this.episodes,
+      required this.episode,
       required final List<String> characters,
       required this.url,
       required this.created})
@@ -207,7 +207,7 @@ class _$EpisodesResultModelImpl implements _EpisodesResultModel {
   @JsonKey(name: "air_date")
   final String airDate;
   @override
-  final String episodes;
+  final String episode;
   final List<String> _characters;
   @override
   List<String> get characters {
@@ -223,7 +223,7 @@ class _$EpisodesResultModelImpl implements _EpisodesResultModel {
 
   @override
   String toString() {
-    return 'EpisodesResultModel(id: $id, name: $name, airDate: $airDate, episodes: $episodes, characters: $characters, url: $url, created: $created)';
+    return 'EpisodesResultModel(id: $id, name: $name, airDate: $airDate, episode: $episode, characters: $characters, url: $url, created: $created)';
   }
 
   @override
@@ -234,8 +234,7 @@ class _$EpisodesResultModelImpl implements _EpisodesResultModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.airDate, airDate) || other.airDate == airDate) &&
-            (identical(other.episodes, episodes) ||
-                other.episodes == episodes) &&
+            (identical(other.episode, episode) || other.episode == episode) &&
             const DeepCollectionEquality()
                 .equals(other._characters, _characters) &&
             (identical(other.url, url) || other.url == url) &&
@@ -244,7 +243,7 @@ class _$EpisodesResultModelImpl implements _EpisodesResultModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, airDate, episodes,
+  int get hashCode => Object.hash(runtimeType, id, name, airDate, episode,
       const DeepCollectionEquality().hash(_characters), url, created);
 
   /// Create a copy of EpisodesResultModel
@@ -269,7 +268,7 @@ abstract class _EpisodesResultModel implements EpisodesResultModel {
       {required final int id,
       required final String name,
       @JsonKey(name: "air_date") required final String airDate,
-      required final String episodes,
+      required final String episode,
       required final List<String> characters,
       required final String url,
       required final String created}) = _$EpisodesResultModelImpl;
@@ -285,7 +284,7 @@ abstract class _EpisodesResultModel implements EpisodesResultModel {
   @JsonKey(name: "air_date")
   String get airDate;
   @override
-  String get episodes;
+  String get episode;
   @override
   List<String> get characters;
   @override

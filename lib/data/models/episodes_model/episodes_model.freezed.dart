@@ -20,7 +20,7 @@ EpisodesModel _$EpisodesModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EpisodesModel {
-  EpisodesResultModel get results => throw _privateConstructorUsedError;
+  List<EpisodesResultModel> get results => throw _privateConstructorUsedError;
   InfoModel get model => throw _privateConstructorUsedError;
 
   /// Serializes this EpisodesModel to a JSON map.
@@ -39,9 +39,8 @@ abstract class $EpisodesModelCopyWith<$Res> {
           EpisodesModel value, $Res Function(EpisodesModel) then) =
       _$EpisodesModelCopyWithImpl<$Res, EpisodesModel>;
   @useResult
-  $Res call({EpisodesResultModel results, InfoModel model});
+  $Res call({List<EpisodesResultModel> results, InfoModel model});
 
-  $EpisodesResultModelCopyWith<$Res> get results;
   $InfoModelCopyWith<$Res> get model;
 }
 
@@ -67,22 +66,12 @@ class _$EpisodesModelCopyWithImpl<$Res, $Val extends EpisodesModel>
       results: null == results
           ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
-              as EpisodesResultModel,
+              as List<EpisodesResultModel>,
       model: null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as InfoModel,
     ) as $Val);
-  }
-
-  /// Create a copy of EpisodesModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $EpisodesResultModelCopyWith<$Res> get results {
-    return $EpisodesResultModelCopyWith<$Res>(_value.results, (value) {
-      return _then(_value.copyWith(results: value) as $Val);
-    });
   }
 
   /// Create a copy of EpisodesModel
@@ -104,10 +93,8 @@ abstract class _$$EpisodesModelImplCopyWith<$Res>
       __$$EpisodesModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({EpisodesResultModel results, InfoModel model});
+  $Res call({List<EpisodesResultModel> results, InfoModel model});
 
-  @override
-  $EpisodesResultModelCopyWith<$Res> get results;
   @override
   $InfoModelCopyWith<$Res> get model;
 }
@@ -130,9 +117,9 @@ class __$$EpisodesModelImplCopyWithImpl<$Res>
   }) {
     return _then(_$EpisodesModelImpl(
       results: null == results
-          ? _value.results
+          ? _value._results
           : results // ignore: cast_nullable_to_non_nullable
-              as EpisodesResultModel,
+              as List<EpisodesResultModel>,
       model: null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
@@ -144,13 +131,21 @@ class __$$EpisodesModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$EpisodesModelImpl implements _EpisodesModel {
-  const _$EpisodesModelImpl({required this.results, required this.model});
+  const _$EpisodesModelImpl(
+      {required final List<EpisodesResultModel> results, required this.model})
+      : _results = results;
 
   factory _$EpisodesModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$EpisodesModelImplFromJson(json);
 
+  final List<EpisodesResultModel> _results;
   @override
-  final EpisodesResultModel results;
+  List<EpisodesResultModel> get results {
+    if (_results is EqualUnmodifiableListView) return _results;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_results);
+  }
+
   @override
   final InfoModel model;
 
@@ -164,13 +159,14 @@ class _$EpisodesModelImpl implements _EpisodesModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EpisodesModelImpl &&
-            (identical(other.results, results) || other.results == results) &&
+            const DeepCollectionEquality().equals(other._results, _results) &&
             (identical(other.model, model) || other.model == model));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, results, model);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_results), model);
 
   /// Create a copy of EpisodesModel
   /// with the given fields replaced by the non-null parameter values.
@@ -190,14 +186,14 @@ class _$EpisodesModelImpl implements _EpisodesModel {
 
 abstract class _EpisodesModel implements EpisodesModel {
   const factory _EpisodesModel(
-      {required final EpisodesResultModel results,
+      {required final List<EpisodesResultModel> results,
       required final InfoModel model}) = _$EpisodesModelImpl;
 
   factory _EpisodesModel.fromJson(Map<String, dynamic> json) =
       _$EpisodesModelImpl.fromJson;
 
   @override
-  EpisodesResultModel get results;
+  List<EpisodesResultModel> get results;
   @override
   InfoModel get model;
 

@@ -9,14 +9,15 @@ part of 'main_location_model.dart';
 _$MainLocationModelImpl _$$MainLocationModelImplFromJson(
         Map<String, dynamic> json) =>
     _$MainLocationModelImpl(
-      model: InfoModel.fromJson(json['model'] as Map<String, dynamic>),
-      location: LocationResultModel.fromJson(
-          json['location'] as Map<String, dynamic>),
+      info: InfoModel.fromJson(json['info'] as Map<String, dynamic>),
+      location: (json['results'] as List<dynamic>)
+          .map((e) => LocationResultModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$MainLocationModelImplToJson(
         _$MainLocationModelImpl instance) =>
     <String, dynamic>{
-      'model': instance.model,
-      'location': instance.location,
+      'info': instance.info,
+      'results': instance.location,
     };

@@ -7,6 +7,6 @@ part 'episodes_model.g.dart';
 
 @freezed
 abstract class EpisodesModel with _$EpisodesModel{
-  const factory EpisodesModel({required EpisodesResultModel results, required InfoModel model}) = _EpisodesModel;
+  const factory EpisodesModel({required List<EpisodesResultModel> results, required InfoModel model}) = _EpisodesModel;
   factory EpisodesModel.fromJson(Map<String, dynamic> json)=> _$EpisodesModelFromJson(json);
 }

@@ -22,8 +22,8 @@ InfoModel _$InfoModelFromJson(Map<String, dynamic> json) {
 mixin _$InfoModel {
   int get count => throw _privateConstructorUsedError;
   int get pages => throw _privateConstructorUsedError;
-  String get next => throw _privateConstructorUsedError;
-  String get prev => throw _privateConstructorUsedError;
+  String? get next => throw _privateConstructorUsedError;
+  String? get prev => throw _privateConstructorUsedError;
 
   /// Serializes this InfoModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $InfoModelCopyWith<$Res> {
   factory $InfoModelCopyWith(InfoModel value, $Res Function(InfoModel) then) =
       _$InfoModelCopyWithImpl<$Res, InfoModel>;
   @useResult
-  $Res call({int count, int pages, String next, String prev});
+  $Res call({int count, int pages, String? next, String? prev});
 }
 
 /// @nodoc
@@ -60,8 +60,8 @@ class _$InfoModelCopyWithImpl<$Res, $Val extends InfoModel>
   $Res call({
     Object? count = null,
     Object? pages = null,
-    Object? next = null,
-    Object? prev = null,
+    Object? next = freezed,
+    Object? prev = freezed,
   }) {
     return _then(_value.copyWith(
       count: null == count
@@ -72,14 +72,14 @@ class _$InfoModelCopyWithImpl<$Res, $Val extends InfoModel>
           ? _value.pages
           : pages // ignore: cast_nullable_to_non_nullable
               as int,
-      next: null == next
+      next: freezed == next
           ? _value.next
           : next // ignore: cast_nullable_to_non_nullable
-              as String,
-      prev: null == prev
+              as String?,
+      prev: freezed == prev
           ? _value.prev
           : prev // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -92,7 +92,7 @@ abstract class _$$InfoModelImplCopyWith<$Res>
       __$$InfoModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int count, int pages, String next, String prev});
+  $Res call({int count, int pages, String? next, String? prev});
 }
 
 /// @nodoc
@@ -110,8 +110,8 @@ class __$$InfoModelImplCopyWithImpl<$Res>
   $Res call({
     Object? count = null,
     Object? pages = null,
-    Object? next = null,
-    Object? prev = null,
+    Object? next = freezed,
+    Object? prev = freezed,
   }) {
     return _then(_$InfoModelImpl(
       count: null == count
@@ -122,14 +122,14 @@ class __$$InfoModelImplCopyWithImpl<$Res>
           ? _value.pages
           : pages // ignore: cast_nullable_to_non_nullable
               as int,
-      next: null == next
+      next: freezed == next
           ? _value.next
           : next // ignore: cast_nullable_to_non_nullable
-              as String,
-      prev: null == prev
+              as String?,
+      prev: freezed == prev
           ? _value.prev
           : prev // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -138,10 +138,7 @@ class __$$InfoModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$InfoModelImpl implements _InfoModel {
   const _$InfoModelImpl(
-      {required this.count,
-      required this.pages,
-      required this.next,
-      required this.prev});
+      {required this.count, required this.pages, this.next, this.prev});
 
   factory _$InfoModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$InfoModelImplFromJson(json);
@@ -151,9 +148,9 @@ class _$InfoModelImpl implements _InfoModel {
   @override
   final int pages;
   @override
-  final String next;
+  final String? next;
   @override
-  final String prev;
+  final String? prev;
 
   @override
   String toString() {
@@ -195,8 +192,8 @@ abstract class _InfoModel implements InfoModel {
   const factory _InfoModel(
       {required final int count,
       required final int pages,
-      required final String next,
-      required final String prev}) = _$InfoModelImpl;
+      final String? next,
+      final String? prev}) = _$InfoModelImpl;
 
   factory _InfoModel.fromJson(Map<String, dynamic> json) =
       _$InfoModelImpl.fromJson;
@@ -206,9 +203,9 @@ abstract class _InfoModel implements InfoModel {
   @override
   int get pages;
   @override
-  String get next;
+  String? get next;
   @override
-  String get prev;
+  String? get prev;
 
   /// Create a copy of InfoModel
   /// with the given fields replaced by the non-null parameter values.
